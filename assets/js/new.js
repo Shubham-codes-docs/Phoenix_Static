@@ -17,7 +17,9 @@ if (document.getElementById("mailSend")) {
 			$.ajax({
 				type: "post",
 				url: "home/sendEmail",
+				headers: { "Content-Type": "application/x-www-form-urlencoded" },
 				data: $("#mailContact").serialize(),
+				body: new URLSearchParams(data).toString(),
 				success: function () {
 					document.getElementById("mailContact").reset();
 					$("#loading1").css("display", "none");
