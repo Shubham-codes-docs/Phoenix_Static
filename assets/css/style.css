@@ -33,6 +33,15 @@ h6 {
 	right: 3rem;
 }
 
+@media(max-width:500px){
+	#sponsorBtn{
+		z-index: 2;
+		position: fixed;
+		top: 0.5rem;
+		right: 5rem;
+	}
+}
+
 a.view_team {
 	background: #0563bb;
 	border: 0;
@@ -1128,6 +1137,8 @@ section {
 --------------------------------------------------------------*/
 .php-email-form,.form-control{
   background-color: inherit !important;
+  border: 2px solid #000;
+  padding: 10px 10px;
 }
 
 input,textarea{

@@ -4,6 +4,9 @@
 	/**
 	 * Easy selector helper function
 	 */
+
+	let previousScrollValue = 0;
+
 	const select = (el, all = false) => {
 		el = el.trim();
 		if (all) {
@@ -13,14 +16,20 @@
 		}
 	};
 
-	/** Highlight team members */
-
-	const itemHighlight = select(".testimonial-item", true);
-	if (itemHighlight) {
-		console.log(itemHighlight);
-	}else{
-    console.log("No");
-  }
+	const buttonHide=()=>{
+		const width = window.screen.availWidth;
+		if(width<500){
+			const button = select('#sponsorBtn');
+			const offset = window.pageYOffset;
+			if(offset>=500){
+				button.style = 'display:none';
+			}
+			if(previousScrollValue>offset){
+				button.style='display:block';
+			}
+			previousScrollValue = offset;
+		}
+	}
 
 	/**
 	 * Easy event listener function
@@ -275,4 +284,8 @@
 			mirror: false,
 		});
 	});
+
+	document.addEventListener('DOMContentLoaded',buttonHide);
+	document.addEventListener('scroll',buttonHide.bind(null,event));
+
 })();
