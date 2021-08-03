@@ -1135,23 +1135,12 @@ section {
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
-.php-email-form,.form-control{
-  background-color: inherit !important;
-  border: 2px solid #000;
-  padding: 10px 10px;
-}
-
 input,textarea{
   border-color: #000 !important;
 }
 
-.contact{
-  background: inherit;
-}
-
 .contact .info {
 	width: 100%;
-	background: inherit;
 }
 
 .contact .info i {
