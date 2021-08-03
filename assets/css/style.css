@@ -347,6 +347,12 @@ a.view_team:hover {
 	position: relative;
 }
 
+@media(max-width:500px){
+	#hero{
+		background-position: center center;
+	}
+}
+
 @media (min-width: 992px) {
 	#hero {
 		padding-left: 160px;
