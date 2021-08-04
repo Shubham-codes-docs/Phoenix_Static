@@ -1,7 +1,7 @@
 const achievments = [
 	{
 		id: 1,
-		img: "../assets/gallery/8.jpg",
+		img: "../assets/gallery/8.webp",
 		heading: "2018 SAE International",
 		description: `In 2018 SAE Aero design event, we bagged the overall 7th 
         rank globally and 3rd rank globally in Design Report
@@ -12,14 +12,14 @@ const achievments = [
 	},
 	{
 		id: 2,
-		img: "../assets/gallery/6.jpg",
+		img: "../assets/gallery/6.webp",
 		heading: "2017 SAE International",
 		description: `In 2017 SAE Aero ​design event, we ranked 15th among all
         global teams and 3rd among all the Indian teams.`,
 	},
 	{
 		id: 3,
-		img: "../assets/gallery/7.jpg",
+		img: "../assets/gallery/7.webp",
 		heading: "2016 SAE International",
 		description: `In 2016 SAE Aero design event, we ranked 14th among all
         global teams and 1st among all the Indian teams`,
