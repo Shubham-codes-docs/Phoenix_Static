@@ -668,11 +668,6 @@ section {
 	border: 2px solid #0563bb;
 }
 
-@media(max-width:500px){
-	.vision{
-		text-align:center;
-	}
-}
 
 /*--------------------------------------------------------------
 # Portfolio
@@ -1133,7 +1128,7 @@ section {
 	}
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
 	.testimonials .container .items {
 		display: flex;
 		flex-direction: column;
