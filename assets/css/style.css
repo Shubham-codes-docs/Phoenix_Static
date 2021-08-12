@@ -342,7 +342,7 @@ a.view_team:hover {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/main2.webp") top right no-repeat;
+  background: url("../backgrounds/hillsOnly.png") center center no-repeat;
   background-size: cover;
   position: relative;
 }
@@ -367,7 +367,8 @@ a.view_team:hover {
 
 #hero:before {
   content: "";
-  background: rgba(255, 255, 255, 0.8);
+  background: url("../backgrounds/cloudsOnly.gif") top right no-repeat;
+  z-index: -5;
   position: absolute;
   bottom: 0;
   top: 0;
