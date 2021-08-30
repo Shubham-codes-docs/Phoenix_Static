@@ -321,4 +321,5 @@
     }
   }
   document.addEventListener("readystatechange", filterQuery);
+  document.addEventListener("onLoad", filterQuery);
 })();
