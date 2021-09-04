@@ -342,7 +342,7 @@ a.view_team:hover {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../backgrounds/planeBg.webp") center center no-repeat;
+  background: url("https://firebasestorage.googleapis.com/v0/b/phoenixassests.appspot.com/o/assets%2Fbackgrounds%2FplaneBg.webp?alt=media&token=52cfd48f-6ad6-4f55-93d4-71c1d0e7f62b") center center no-repeat;
   background-size: cover;
   position: relative;
 }
