@@ -18,20 +18,20 @@
 
   const buttonHide = () => {
     const width = window.screen.availWidth;
+    const button = select("#sponsorBtn");
     if (width < 500) {
-      const button = select("#sponsorBtn");
       if (!button) {
         return;
       }
-      const offset = window.pageYOffset;
-      if (offset >= 500) {
-        button.style = "display:none";
-      }
-      if (previousScrollValue > offset) {
-        button.style = "display:block";
-      }
-      previousScrollValue = offset;
     }
+    const offset = window.pageYOffset;
+    if (offset >= 500) {
+      button.style = "display:none";
+    }
+    if (previousScrollValue > offset) {
+      button.style = "display:block";
+    }
+    previousScrollValue = offset;
   };
 
   /**
@@ -302,21 +302,48 @@
         });
 
         let portfolioFilters = select("#portfolio-flters li", true);
-
-        portfolioFilters.forEach(function (el) {
-          el.style = "display:none";
-          if (el.getAttribute("data-filter") === `.filter-${newString[1]}`) {
-            el.classList.add("filter-active");
-            el.style = "margin:50px 50px; width:100%";
+        portfolioFilters.forEach(function (el){
+          if (el.getAttribute("data-filter") == `.filter-${newString[1]}`) {
+                // el.classList.add("filter-active");
+                el.click();
+                on(
+                  "click",
+                  "#portfolio-flters li",
+                  function (e) {
+                    console.log(e)
+                    e.preventDefault();
+                    portfolioFilters.forEach(function (el) {
+                      el.classList.remove("filter-active");
+                    });
+                    this.classList.add("filter-active");
+                    portfolioIsotope.arrange({
+                      filter: this.getAttribute(`.filter-${newString[1]}`),
+                    });
+                    portfolioIsotope.on("arrangeComplete", function () {
+                      AOS.refresh();
+                    });
+                  },
+                  true
+                );
+              }
+          if(el.getAttribute("data-filter") != `.filter-${newString[1]}`){
+            el.classList.remove("filter-active");
           }
-        });
+        })
+        // portfolioFilters.forEach(function (el) {
+        //   el.style = "display:none";
+        //   if (el.getAttribute("data-filter") === `.filter-${newString[1]}`) {
+        //     el.classList.add("filter-active");
+        //     el.style = "margin:50px 50px; width:100%";
+        //   }
+        // });
 
-        portfolioIsotope.arrange({
-          filter: `.filter-${newString[1]}`,
-        });
-        portfolioIsotope.on("arrangeComplete", function () {
-          AOS.refresh();
-        });
+        // portfolioIsotope.arrange({
+        //   filter: `.filter-${newString[1]}`,
+        // });
+        // portfolioIsotope.on("arrangeComplete", function () {
+        //   AOS.refresh();
+        // });
       }
     }
   }
