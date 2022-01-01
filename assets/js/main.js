@@ -350,39 +350,6 @@
     }
   }
 
-
-  const getCount = async ()=>{
-    const res = await (`https://api.countapi.xyz/get/https://teamphoenix.co.in/027c2850-076c-4e98-a843-b44881b43eaf`);
-    const data = await res.json();
-    setValue(data.value);
-  }
-
-  const incrementCount = async () => {
-    const response = await (`https://api.countapi.xyz/get/https://teamphoenix.co.in/027c2850-076c-4e98-a843-b44881b43eaf`);
-    const data = await response.json();
-    setValue(data.value);
-  };
-
-  const setValue = (num) => {
-    var str = num.toString().padStart(6, "0");
-    for (let index = 0; index < str.length; index++) {
-      const element = str[index];
-      let counter = document.querySelector('.counter').getElementsByTagName('span');
-      counter[index].innerHTML = element;
-    }
-  };
-
-  if (localStorage.getItem("hasVisited") == null) {
-    incrementCount()
-      .then(() => {
-        localStorage.setItem("hasVisited", "true");
-      })
-      .catch((err) => console.log(err));
-  } else {
-    getCount()
-      .catch((err) => console.log(err));
-  }
-
   document.addEventListener("readystatechange", filterQuery);
   document.addEventListener("onLoad", filterQuery);
 })();
