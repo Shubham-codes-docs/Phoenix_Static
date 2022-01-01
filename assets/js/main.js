@@ -302,51 +302,87 @@
         });
 
         let portfolioFilters = select("#portfolio-flters li", true);
-        portfolioFilters.forEach(function (el){
-          if (el.getAttribute("data-filter") == `.filter-${newString[1]}`) {
-                // el.classList.add("filter-active");
-                el.click();
-                on(
-                  "click",
-                  "#portfolio-flters li",
-                  function (e) {
-                    console.log(e)
-                    e.preventDefault();
-                    portfolioFilters.forEach(function (el) {
-                      el.classList.remove("filter-active");
-                    });
-                    this.classList.add("filter-active");
-                    portfolioIsotope.arrange({
-                      filter: this.getAttribute(`.filter-${newString[1]}`),
-                    });
-                    portfolioIsotope.on("arrangeComplete", function () {
-                      AOS.refresh();
-                    });
-                  },
-                  true
-                );
-              }
-          if(el.getAttribute("data-filter") != `.filter-${newString[1]}`){
+        // portfolioFilters.forEach(function (el){
+        //   if (el.getAttribute("data-filter") == `.filter-${newString[1]}`) {
+        //         // el.classList.add("filter-active");
+        //         el.click();
+        //         on(
+        //           "click",
+        //           "#portfolio-flters li",
+        //           function (e) {
+        //             console.log(e)
+        //             e.preventDefault();
+        //             portfolioFilters.forEach(function (el) {
+        //               el.classList.remove("filter-active");
+        //             });
+        //             this.classList.add("filter-active");
+        //             portfolioIsotope.arrange({
+        //               filter: this.getAttribute(`.filter-${newString[1]}`),
+        //             });
+        //             portfolioIsotope.on("arrangeComplete", function () {
+        //               AOS.refresh();
+        //             });
+        //           },
+        //           true
+        //         );
+        //       }
+        //   if(el.getAttribute("data-filter") != `.filter-${newString[1]}`){
+        //     el.classList.remove("filter-active");
+        //   }
+        // })
+        portfolioFilters.forEach(function (el) {
+          if (el.getAttribute("data-filter") === `.filter-${newString[1]}`) {
+            el.classList.add("filter-active");
+            el.style = "margin:50px 50px; width:100%";
+          }else{
+            el.style = "display:none";
             el.classList.remove("filter-active");
           }
-        })
-        // portfolioFilters.forEach(function (el) {
-        //   el.style = "display:none";
-        //   if (el.getAttribute("data-filter") === `.filter-${newString[1]}`) {
-        //     el.classList.add("filter-active");
-        //     el.style = "margin:50px 50px; width:100%";
-        //   }
-        // });
+        });
 
-        // portfolioIsotope.arrange({
-        //   filter: `.filter-${newString[1]}`,
-        // });
-        // portfolioIsotope.on("arrangeComplete", function () {
-        //   AOS.refresh();
-        // });
+        portfolioIsotope.arrange({
+          filter: `.filter-${newString[1]}`,
+        });
+        portfolioIsotope.on("arrangeComplete", function () {
+          AOS.refresh();
+        });
       }
     }
   }
+
+
+  const getCount = async ()=>{
+    const res = await (`https://api.countapi.xyz/get/https://teamphoenix.co.in/027c2850-076c-4e98-a843-b44881b43eaf`);
+    const data = await res.json();
+    setValue(data.value);
+  }
+
+  const incrementCount = async () => {
+    const response = await (`https://api.countapi.xyz/get/https://teamphoenix.co.in/027c2850-076c-4e98-a843-b44881b43eaf`);
+    const data = await response.json();
+    setValue(data.value);
+  };
+
+  const setValue = (num) => {
+    var str = num.toString().padStart(6, "0");
+    for (let index = 0; index < str.length; index++) {
+      const element = str[index];
+      let counter = document.querySelector('.counter').getElementsByTagName('span');
+      counter[index].innerHTML = element;
+    }
+  };
+
+  if (localStorage.getItem("hasVisited") == null) {
+    incrementCount()
+      .then(() => {
+        localStorage.setItem("hasVisited", "true");
+      })
+      .catch((err) => console.log(err));
+  } else {
+    getCount()
+      .catch((err) => console.log(err));
+  }
+
   document.addEventListener("readystatechange", filterQuery);
   document.addEventListener("onLoad", filterQuery);
 })();

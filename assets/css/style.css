@@ -1364,3 +1364,20 @@ textarea {
 #contact .container ul li {
   list-style: none;
 }
+
+.counter{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.counter span{
+  display: inline-block;
+  padding: 10px 10px 6px;
+  border-radius: 6px;
+  background: #80b4e5;
+  margin: 5px 5px;
+  font-size: 2rem;
+}
