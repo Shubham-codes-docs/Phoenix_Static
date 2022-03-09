@@ -276,6 +276,12 @@ a.view_team:hover {
   }
 }
 
+@media (max-width: 768px) {
+  .nav-menu {
+    margin-top: -160px;
+  }
+}
+
 .nav-menu a:hover,
 .nav-menu .active,
 .nav-menu li:hover > a {
@@ -351,7 +357,6 @@ a.view_team:hover {
   #hero {
     background-position: center center;
     background-size: cover;
-    
   }
 }
 
