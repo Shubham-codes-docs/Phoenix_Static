@@ -24,4 +24,9 @@
         align-items: center;
         justify-content: center;
     }
+
+    .quiz{
+        min-height: 45rem;
+    }
+
 }
