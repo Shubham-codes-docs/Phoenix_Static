@@ -388,17 +388,31 @@
     });
 
     const quizLink = select("#quiz-link");
-    console.log(quizLink);
+    const treasureLink = select("#treasure-link");
     const time = Date.now();
-    const quizTimeStart = +new Date("03/09/2022 12:20:00");
-    const quizTimeEnd = +new Date("03/09/2022 12:25:00");
-    console.log(quizTimeEnd);
+    const quizTimeStart = +new Date("03/09/2022 20:47:00");
+    const quizTimeEnd = +new Date("03/09/2022 21:55:00");
+    const treasureTimeStart = +new Date("03/09/2022 20:47:00");
+    const treasureTimeEnd = +new Date("03/09/2022 21:55:00");
     if(time>=quizTimeStart && time<=quizTimeEnd){
       quizLink.setAttribute("href","https://forms.gle/PoMDAZGsLboyT9VR9");
       quizLink.setAttribute("target","_blank");
+      quizLink.textContent = "Link for the quiz";
     }
     if(time>=quizTimeEnd){
       quizLink.setAttribute("href","");
+      quizLink.textContent = "Sorry!The quiz is now over";
+    }
+
+    if(time>=treasureTimeStart && time<=treasureTimeEnd){
+      treasureLink.setAttribute("href","https://drive.google.com/file/d/1Jfw-VRZwq1iQRfpv2m2XqV_-bXv3X4pK/view?usp=drivesdk");
+      treasureLink.setAttribute("target","_blank");
+      treasureLink.textContent="TASK1";
+    }
+
+    if(time>=treasureTimeEnd){
+      quizLink.setAttribute("href","");
+      quizLink.textContent = "Sorry!The quiz is now over";
     }
 
   document.addEventListener("readystatechange", filterQuery);
