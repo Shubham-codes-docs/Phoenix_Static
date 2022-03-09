@@ -9,3 +9,19 @@
 .tab{
     cursor: pointer;
 }
+
+.events-landing-image{
+    max-width: 30rem;
+}
+
+.events-landing{
+    margin-bottom: -100px;
+}
+
+@media(max-width:768px){
+     .tab-container{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

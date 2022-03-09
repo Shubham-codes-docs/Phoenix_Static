@@ -357,23 +357,49 @@
   const crossSection = document.querySelector("#crosswords");
   const treasureSection = document.querySelector("#treasure-hunt");
 
-  quizTab.addEventListener("click", () => {
-    quizSection.style = "display:block";
-    crossSection.style = "display:none";
-    treasureSection.style = "display:none";
-  });
+  quizTab &&
+    quizTab.addEventListener("click", () => {
+      quizSection.style = "display:block";
+      crossSection.style = "display:none";
+      treasureSection.style = "display:none";
+      quizTab.querySelector("a").classList.add("active");
+      crosswordsTab.querySelector("a").classList.remove("active");
+      treasureTab.querySelector("a").classList.remove("active");
+    });
 
-  crosswordsTab.addEventListener("click", () => {
-    crossSection.style = "display:block";
-    quizSection.style = "display:none";
-    treasureSection.style = "display:none";
-  });
+  crosswordsTab &&
+    crosswordsTab.addEventListener("click", () => {
+      crossSection.style = "display:block";
+      quizSection.style = "display:none";
+      treasureSection.style = "display:none";
+      crosswordsTab.querySelector("a").classList.add("active");
+      quizTab.querySelector("a").classList.remove("active");
+      treasureTab.querySelector("a").classList.remove("active");
+    });
 
-  treasureTab.addEventListener("click", () => {
-    treasureSection.style = "display:block";
-    crossSection.style = "display:none";
-    quizSection.style = "display:none";
-  });
+  treasureTab &&
+    treasureTab.addEventListener("click", () => {
+      treasureSection.style = "display:block";
+      crossSection.style = "display:none";
+      quizSection.style = "display:none";
+      treasureTab.querySelector("a").classList.add("active");
+      quizTab.querySelector("a").classList.remove("active");
+      crosswordsTab.querySelector("a").classList.remove("active");
+    });
+
+    const quizLink = select("#quiz-link");
+    console.log(quizLink);
+    const time = Date.now();
+    const quizTimeStart = +new Date("03/09/2022 12:20:00");
+    const quizTimeEnd = +new Date("03/09/2022 12:25:00");
+    console.log(quizTimeEnd);
+    if(time>=quizTimeStart && time<=quizTimeEnd){
+      quizLink.setAttribute("href","https://forms.gle/PoMDAZGsLboyT9VR9");
+      quizLink.setAttribute("target","_blank");
+    }
+    if(time>=quizTimeEnd){
+      quizLink.setAttribute("href","");
+    }
 
   document.addEventListener("readystatechange", filterQuery);
   document.addEventListener("onLoad", filterQuery);
