@@ -334,7 +334,7 @@
           if (el.getAttribute("data-filter") === `.filter-${newString[1]}`) {
             el.classList.add("filter-active");
             el.style = "margin:50px 50px; width:100%";
-          }else{
+          } else {
             el.style = "display:none";
             el.classList.remove("filter-active");
           }
@@ -349,6 +349,31 @@
       }
     }
   }
+
+  const quizTab = document.querySelector("#quiz-tab");
+  const crosswordsTab = document.querySelector("#cross-tab");
+  const treasureTab = document.querySelector("#treasure-tab");
+  const quizSection = document.querySelector("#quiz");
+  const crossSection = document.querySelector("#crosswords");
+  const treasureSection = document.querySelector("#treasure-hunt");
+
+  quizTab.addEventListener("click", () => {
+    quizSection.style = "display:block";
+    crossSection.style = "display:none";
+    treasureSection.style = "display:none";
+  });
+
+  crosswordsTab.addEventListener("click", () => {
+    crossSection.style = "display:block";
+    quizSection.style = "display:none";
+    treasureSection.style = "display:none";
+  });
+
+  treasureTab.addEventListener("click", () => {
+    treasureSection.style = "display:block";
+    crossSection.style = "display:none";
+    quizSection.style = "display:none";
+  });
 
   document.addEventListener("readystatechange", filterQuery);
   document.addEventListener("onLoad", filterQuery);

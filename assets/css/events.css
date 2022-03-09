@@ -1,0 +1,11 @@
+.quiz{
+    display: none;
+}
+
+.active-tab{
+    display: block;
+}
+
+.tab{
+    cursor: pointer;
+}
