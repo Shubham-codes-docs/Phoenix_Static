@@ -387,33 +387,50 @@
       crosswordsTab.querySelector("a").classList.remove("active");
     });
 
-    const quizLink = select("#quiz-link");
-    const treasureLink = select("#treasure-link");
-    const time = Date.now();
-    const quizTimeStart = +new Date("03/10/2022 20:00:00");
-    const quizTimeEnd = +new Date("03/10/2022 20:20:00");
-    const treasureTimeStart = +new Date("03/20/2022 12:00:00");
-    const treasureTimeEnd = +new Date("03/20/2022 14:00:00");
-    if(time>=quizTimeStart && time<=quizTimeEnd){
-      quizLink.setAttribute("href","https://forms.gle/PoMDAZGsLboyT9VR9");
-      quizLink.setAttribute("target","_blank");
-      quizLink.textContent = "Link for the quiz";
-    }
-    if(time>=quizTimeEnd){
-      quizLink.setAttribute("href","");
-      quizLink.textContent = "Sorry!The quiz is now over";
-    }
+  const quizLink = select("#quiz-link");
+  const treasureLink = select("#treasure-link");
+  const crossLink = select("#cross-link");
+  const time = Date.now();
+  const quizTimeStart = +new Date("03/10/2022 19:59:00");
+  const quizTimeEnd = +new Date("03/10/2022 20:20:00");
+  const treasureTimeStart = +new Date("03/20/2022 12:00:00");
+  const treasureTimeEnd = +new Date("03/20/2022 14:00:00");
+  const crossTimeStart = +new Date("03/19/2022 20:00:00");
+  const crossTimeEnd = +new Date("03/19/2022 20:20:00");
+  if (time >= quizTimeStart && time <= quizTimeEnd) {
+    quizLink.setAttribute("href", "https://forms.gle/PoMDAZGsLboyT9VR9");
+    quizLink.setAttribute("target", "_blank");
+    quizLink.textContent = "Link for the quiz";
+  }
+  if (time >= quizTimeEnd) {
+    quizLink.setAttribute("href", "");
+    quizLink.textContent = "Sorry!The quiz is now over";
+  }
 
-    if(time>=treasureTimeStart && time<=treasureTimeEnd){
-      treasureLink.setAttribute("href","https://drive.google.com/file/d/1Jfw-VRZwq1iQRfpv2m2XqV_-bXv3X4pK/view?usp=drivesdk");
-      treasureLink.setAttribute("target","_blank");
-      treasureLink.textContent="TASK1";
-    }
+  if (time >= treasureTimeStart && time <= treasureTimeEnd) {
+    treasureLink.setAttribute(
+      "href",
+      "https://drive.google.com/file/d/1Jfw-VRZwq1iQRfpv2m2XqV_-bXv3X4pK/view?usp=drivesdk"
+    );
+    treasureLink.setAttribute("target", "_blank");
+    treasureLink.textContent = "TASK1";
+  }
 
-    if(time>=treasureTimeEnd){
-      quizLink.setAttribute("href","");
-      quizLink.textContent = "Sorry!The quiz is now over";
-    }
+  if (time >= treasureTimeEnd) {
+    quizLink.setAttribute("href", "");
+    quizLink.textContent = "Sorry!The quiz is now over";
+  }
+
+  if (time >= crossTimeStart && time <= crossTimeEnd) {
+    crossLink.setAttribute("href", "https://forms.gle/Wcv2U398HegtNF2k9");
+    crossLink.setAttribute("target", "_blank");
+    crossLink.textContent = "The crosswords start here";
+  }
+
+  if (time >= treasureTimeEnd) {
+    quizLink.setAttribute("href", "");
+    quizLink.textContent = "The crosswords is now over.";
+  }
 
   document.addEventListener("readystatechange", filterQuery);
   document.addEventListener("onLoad", filterQuery);
