@@ -294,7 +294,6 @@
     const queryString = window.location.search;
     if (queryString) {
       const newString = queryString.split("=");
-      console.log(newString);
       let portfolioContainer = select(".portfolio-container");
       if (portfolioContainer) {
         let portfolioIsotope = new Isotope(portfolioContainer, {
@@ -417,8 +416,8 @@
   }
 
   if (time >= treasureTimeEnd) {
-    quizLink.setAttribute("href", "");
-    quizLink.textContent = "Sorry!The quiz is now over";
+    treasureLink.setAttribute("href", "");
+    treasureLink.textContent = "The treasure has been found! The hunt is closed.";
   }
 
   if (time >= crossTimeStart && time <= crossTimeEnd) {
@@ -427,9 +426,9 @@
     crossLink.textContent = "The crosswords start here";
   }
 
-  if (time >= treasureTimeEnd) {
-    quizLink.setAttribute("href", "");
-    quizLink.textContent = "The crosswords is now over.";
+  if (time >= crossTimeEnd) {
+    crossLink.setAttribute("href", "");
+    crossLink.textContent = "The crosswords is now over.";
   }
 
   document.addEventListener("readystatechange", filterQuery);
