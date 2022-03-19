@@ -394,8 +394,8 @@
   const quizTimeEnd = +new Date("03/10/2022 20:30:00");
   const treasureTimeStart = +new Date("03/20/2022 12:00:00");
   const treasureTimeEnd = +new Date("03/20/2022 14:00:00");
-  const crossTimeStart = +new Date("03/19/2022 18:25:00");
-  const crossTimeEnd = +new Date("03/19/2022 19:00:00");
+  const crossTimeStart = +new Date("03/19/2022 19:57:00");
+  const crossTimeEnd = +new Date("03/19/2022 20:25:00");
   if (time >= quizTimeStart && time <= quizTimeEnd) {
     quizLink.setAttribute("href", "https://forms.gle/PoMDAZGsLboyT9VR9");
     quizLink.setAttribute("target", "_blank");
