@@ -392,7 +392,7 @@
   const time = Date.now();
   const quizTimeStart = +new Date("03/10/2022 19:55:00");
   const quizTimeEnd = +new Date("03/10/2022 20:30:00");
-  const treasureTimeStart = +new Date("03/20/2022 12:00:00");
+  const treasureTimeStart = +new Date("03/20/2022 10:59:00");
   const treasureTimeEnd = +new Date("03/20/2022 14:00:00");
   const crossTimeStart = +new Date("03/19/2022 19:57:00");
   const crossTimeEnd = +new Date("03/19/2022 20:25:00");
@@ -409,7 +409,7 @@
   if (time >= treasureTimeStart && time <= treasureTimeEnd) {
     treasureLink.setAttribute(
       "href",
-      "https://drive.google.com/file/d/1Jfw-VRZwq1iQRfpv2m2XqV_-bXv3X4pK/view?usp=drivesdk"
+      "./Task1.pdf"
     );
     treasureLink.setAttribute("target", "_blank");
     treasureLink.textContent = "TASK1";
